@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f4ef">
-  <meta name="description" content="Portfolio de Álvaro González: proyectos de desarrollo con Python, análisis de datos y automatización.">
-  <title>Álvaro González — Portfolio</title>
+  <meta name="theme-color" content="#f5f5f1">
+  <meta name="description" content="CV digital de Álvaro González Blanco: Ciencias Ambientales, Data Science, SIG, formación, cursos y experiencia.">
+  <title>Álvaro González Blanco — CV digital</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f5f4ef;
-      --ink: #17231f;
-      --muted: #65716b;
-      --line: #dce0d8;
-      --green: #c9ef76;
-      --green-dark: #58742c;
-      --card: #fffefa;
+      --paper: #f5f5f1;
+      --surface: #fff;
+      --ink: #202a26;
+      --muted: #68736d;
+      --line: #e2e5df;
+      --accent: #52775d;
+      --accent-dark: #365541;
+      --accent-pale: #eaf0e9;
       --serif: Georgia, "Times New Roman", serif;
       --sans: "Segoe UI", Arial, sans-serif;
     }
@@ -41,598 +42,495 @@
     }
 
     a:focus-visible {
-      outline: 3px solid var(--green-dark);
+      outline: 3px solid var(--accent);
       outline-offset: 4px;
     }
 
     .shell {
-      width: min(1120px, calc(100% - 64px));
+      width: min(1050px, calc(100% - 48px));
       margin: 0 auto;
     }
 
     .topbar {
       display: flex;
+      min-height: 72px;
       align-items: center;
       justify-content: space-between;
-      min-height: 82px;
       border-bottom: 1px solid var(--line);
     }
 
     .wordmark {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: -0.02em;
       text-decoration: none;
     }
 
-    .wordmark-mark {
-      display: grid;
-      width: 34px;
-      height: 34px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--green);
+    .wordmark span {
+      margin-right: 8px;
+      color: var(--accent);
       font-family: var(--serif);
-      font-size: 15px;
-      font-weight: 400;
-      letter-spacing: -0.08em;
+      font-size: 17px;
     }
 
-    .nav {
+    nav {
       display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 13px;
+      gap: 25px;
     }
 
-    .nav a {
+    nav a {
       color: var(--muted);
+      font-size: 11px;
       text-decoration: none;
-      transition: color 160ms ease;
     }
 
-    .nav a:hover {
-      color: var(--ink);
+    nav a:hover,
+    .contact-links a:hover,
+    .project-link:hover {
+      color: var(--accent);
     }
 
-    .nav .nav-contact {
-      padding: 11px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--ink);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-      align-items: center;
-      gap: 72px;
-      min-height: 570px;
-      padding: 80px 0 88px;
+    .intro {
+      padding: 66px 0 42px;
+      border-bottom: 1px solid var(--line);
     }
 
     .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      width: 23px;
-      height: 1px;
-      background: var(--green-dark);
-      content: "";
-    }
-
-    h1 {
-      max-width: 640px;
-      margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(58px, 8vw, 94px);
-      font-weight: 400;
-      letter-spacing: -0.075em;
-      line-height: 0.98;
-    }
-
-    h1 span {
-      color: var(--green-dark);
-      font-style: italic;
-    }
-
-    .hero-copy {
-      max-width: 510px;
-      margin: 26px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0 19px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 160ms ease, background 160ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      background: #2b3c35;
-    }
-
-    .button-secondary {
-      border-color: var(--line);
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .button-secondary:hover {
-      background: #ebece4;
-    }
-
-    .button svg,
-    .text-link svg {
-      width: 15px;
-      height: 15px;
-    }
-
-    .hero-art {
-      position: relative;
-      display: grid;
-      min-height: 352px;
-      overflow: hidden;
-      place-items: center;
-      border-radius: 5px;
-      background: #e7eade;
-    }
-
-    .hero-art::before,
-    .hero-art::after {
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border: 1px solid rgba(23, 35, 31, 0.12);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .hero-art::after {
-      width: 340px;
-      height: 340px;
-    }
-
-    .art-label {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      z-index: 1;
-      color: var(--muted);
+      margin: 0 0 15px;
+      color: var(--accent);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
-    .monogram {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      width: 184px;
-      height: 184px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 24px 55px rgba(49, 66, 38, 0.14);
-      color: var(--ink);
+    h1 {
+      margin: 0;
       font-family: var(--serif);
-      font-size: 74px;
-      letter-spacing: -0.1em;
-      padding-right: 9px;
+      font-size: clamp(45px, 7vw, 72px);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 1;
     }
 
-    .art-note {
-      position: absolute;
-      right: 24px;
-      bottom: 23px;
+    .headline {
+      margin: 15px 0 0;
       color: var(--muted);
-      font-family: var(--serif);
-      font-size: 14px;
-      font-style: italic;
+      font-size: 15px;
+    }
+
+    .summary {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: #4e5a54;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 21px;
+    }
+
+    .contact-links a {
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 39px 0 67px;
     }
 
     .section {
-      padding: 84px 0;
-      border-top: 1px solid var(--line);
+      padding: 27px 0 32px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 20px;
+    }
+
+    .section:first-child {
+      padding-top: 0;
     }
 
     .section-heading {
       display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 34px;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 17px;
     }
 
-    .section-heading .eyebrow {
-      margin-bottom: 13px;
+    .section-number {
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
     }
 
     h2 {
       margin: 0;
       font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 52px);
+      font-size: 26px;
       font-weight: 400;
-      letter-spacing: -0.055em;
-      line-height: 1.08;
+      letter-spacing: -0.04em;
     }
 
-    .section-intro {
-      max-width: 430px;
-      margin: 0;
+    .entry {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 20px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .entry:first-of-type {
+      border-top: 0;
+    }
+
+    .entry-date {
+      padding-top: 3px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .entry-content h3,
+    .course h3,
+    .project h3 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    .entry-place {
+      margin: 5px 0 0;
+      color: var(--accent-dark);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .entry-description {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11px;
       line-height: 1.75;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
+    .study-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
     }
 
-    .about-card,
-    .focus-card {
-      min-height: 238px;
-      padding: 30px;
+    .study-details span,
+    .tag {
+      padding: 5px 8px;
+      border-radius: 3px;
+      background: var(--accent-pale);
+      color: #405b48;
+      font-size: 9px;
+      line-height: 1.4;
+    }
+
+    .study-details.environmental span {
+      background: #f0f0e8;
+      color: #59604a;
+    }
+
+    .education-entry {
+      padding-top: 19px;
+      padding-bottom: 19px;
+    }
+
+    .education-entry h3 {
+      font-size: 14px;
+    }
+
+    .current {
+      display: inline-block;
+      margin-left: 7px;
+      padding: 4px 7px;
+      border-radius: 99px;
+      background: var(--accent-pale);
+      color: var(--accent-dark);
+      font-size: 9px;
+      font-weight: 700;
+      vertical-align: 2px;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .course {
+      min-height: 165px;
+      padding: 17px;
       border: 1px solid var(--line);
       border-radius: 4px;
-      background: var(--card);
+      background: var(--surface);
     }
 
-    .about-card p {
-      max-width: 520px;
-      margin: 0;
-      color: #48554e;
-      font-family: var(--serif);
-      font-size: clamp(20px, 2.4vw, 28px);
-      letter-spacing: -0.025em;
-      line-height: 1.5;
-    }
-
-    .focus-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: var(--green);
-    }
-
-    .focus-label {
-      margin: 0;
-      color: #42542b;
-      font-size: 10px;
+    .course-date {
+      margin: 0 0 11px;
+      color: var(--accent);
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .focus-card h3 {
-      max-width: 320px;
-      margin: 28px 0 0;
-      font-family: var(--serif);
-      font-size: 32px;
-      font-weight: 400;
-      letter-spacing: -0.045em;
-      line-height: 1.15;
+    .course h3 {
+      line-height: 1.5;
     }
 
-    .skills {
+    .course p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    .language-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 20px;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 510px;
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
     }
 
-    .skill {
-      padding: 9px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--card);
-      color: #46534c;
-      font-size: 12px;
+    .language-row:first-of-type {
+      border-top: 0;
+    }
+
+    .language-level {
+      color: var(--accent-dark);
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .section-note {
+      margin: -5px 0 16px 27px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 12px;
     }
 
-    .project-card {
+    .project {
       display: flex;
-      min-height: 312px;
+      min-height: 137px;
       flex-direction: column;
-      padding: 27px;
+      padding: 17px;
       border: 1px solid var(--line);
       border-radius: 4px;
-      background: var(--card);
-      transition: border-color 180ms ease, transform 180ms ease;
+      background: var(--surface);
     }
 
-    .project-card:hover {
-      transform: translateY(-3px);
-      border-color: #9baa91;
-    }
-
-    .project-topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.08em;
+    .project-type {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
-    .project-icon {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      place-items: center;
-      border-radius: 50%;
-      background: #eef0e8;
-      color: var(--green-dark);
-    }
-
-    .project-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .project-card h3 {
-      margin: 27px 0 10px;
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-    }
-
-    .project-card > p {
-      max-width: 470px;
-      margin: 0;
+    .project p {
+      margin: 6px 0 13px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
-    }
-
-    .project-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: auto;
-      padding-top: 24px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .project-tags span {
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: #f0f1eb;
-      color: #56625b;
       font-size: 10px;
+      line-height: 1.7;
     }
 
-    .text-link {
-      display: inline-flex;
-      flex-shrink: 0;
-      align-items: center;
-      gap: 7px;
-      color: var(--ink);
-      font-size: 12px;
-      font-weight: 700;
+    .project-link {
+      margin-top: auto;
+      color: var(--accent-dark);
+      font-size: 10px;
+      font-weight: 650;
       text-decoration: none;
     }
 
-    .text-link:hover {
-      color: var(--green-dark);
-    }
-
-    .contact {
+    .future-projects {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 42px;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px dashed #cbd4c9;
       border-radius: 4px;
-      background: var(--ink);
-      color: white;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.6;
     }
 
-    .contact .eyebrow {
-      color: #b7c1ba;
-    }
-
-    .contact .eyebrow::before {
-      background: var(--green);
-    }
-
-    .contact h2 {
-      max-width: 590px;
-      font-size: clamp(34px, 5vw, 51px);
-    }
-
-    .contact .button {
+    .future-mark {
+      display: grid;
+      width: 25px;
+      height: 25px;
       flex-shrink: 0;
-      border-color: var(--green);
-      background: var(--green);
-      color: var(--ink);
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-pale);
+      color: var(--accent-dark);
+      font-size: 16px;
     }
 
-    .contact .button:hover {
-      background: #d8f59b;
+    .future-projects strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    .skills-groups {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+
+    .skill-group h3 {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: #f0f1ed;
+      color: #505b54;
+    }
+
+    .experience-entry {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .other-data {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .other-data span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--surface);
+      color: #4e5a54;
+      font-size: 10px;
     }
 
     footer {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 26px 0 32px;
+      gap: 16px;
+      padding: 19px 0 26px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 11px;
+      font-size: 10px;
     }
 
     footer a {
+      color: var(--accent-dark);
       text-decoration: none;
     }
 
-    footer a:hover {
-      color: var(--ink);
-    }
-
-    @media (max-width: 760px) {
+    @media (max-width: 720px) {
       .shell {
-        width: min(100% - 40px, 560px);
+        width: min(100% - 36px, 580px);
       }
 
-      .topbar {
-        min-height: 72px;
+      .intro {
+        padding: 52px 0 33px;
       }
 
-      .nav {
-        gap: 17px;
-      }
-
-      .nav a {
-        font-size: 12px;
-      }
-
-      .nav .nav-contact {
-        padding: 9px 12px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 42px;
-        min-height: auto;
-        padding: 72px 0;
-      }
-
-      .hero-art {
-        min-height: 310px;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
-      }
-
-      .about-grid,
-      .projects-grid {
+      .courses-grid,
+      .skills-groups {
         grid-template-columns: 1fr;
       }
 
-      .about-card,
-      .focus-card {
-        min-height: 210px;
-        padding: 25px;
+      .course {
+        min-height: unset;
       }
 
-      .project-card {
-        min-height: 290px;
-        padding: 24px;
-      }
-
-      .contact {
-        align-items: start;
-        flex-direction: column;
-        padding: 31px 25px;
+      .entry {
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 14px;
       }
     }
 
-    @media (max-width: 430px) {
+    @media (max-width: 480px) {
       .shell {
         width: calc(100% - 32px);
       }
 
-      .nav {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: 64px;
         gap: 12px;
+        padding: 13px 0;
       }
 
-      .nav a {
-        font-size: 11px;
+      nav {
+        flex-wrap: wrap;
+        gap: 9px 16px;
       }
 
-      .nav .nav-contact {
-        padding: 8px 10px;
+      nav a {
+        font-size: 10px;
       }
 
       .wordmark {
-        gap: 8px;
-        font-size: 12px;
+        font-size: 11px;
       }
 
-      .wordmark-mark {
-        width: 31px;
-        height: 31px;
+      .wordmark span {
+        margin-right: 4px;
       }
 
-      .hero {
-        padding-top: 60px;
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 4px;
       }
 
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
+      .entry-date {
+        padding: 0;
       }
 
-      .button {
-        width: 100%;
-      }
-
-      .project-bottom {
-        align-items: flex-start;
-        flex-direction: column;
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       footer {
-        align-items: flex-start;
         flex-direction: column;
       }
     }
@@ -641,146 +539,275 @@
       html {
         scroll-behavior: auto;
       }
+    }
 
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
+    @media print {
+      :root {
+        --paper: #fff;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .shell {
+        width: 100%;
+      }
+
+      .topbar,
+      nav,
+      footer {
+        display: none;
+      }
+
+      .intro {
+        padding-top: 15px;
+      }
+
+      main {
+        padding-top: 22px;
+      }
+
+      .section,
+      .entry,
+      .course,
+      .project,
+      .skill-group {
+        break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none;
       }
     }
   </style>
 </head>
 <body>
   <header class="shell topbar">
-    <a class="wordmark" href="#inicio" aria-label="Álvaro González, inicio">
-      <span class="wordmark-mark" aria-hidden="true">AG</span>
-      <span>Álvaro González</span>
-    </a>
-    <nav class="nav" aria-label="Navegación principal">
-      <a href="#sobre-mi">Sobre mí</a>
+    <a class="wordmark" href="#inicio"><span aria-hidden="true">AG</span> Álvaro González Blanco</a>
+    <nav aria-label="Navegación principal">
+      <a href="#formacion">Formación</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#idiomas">Idiomas</a>
       <a href="#proyectos">Proyectos</a>
-      <a class="nav-contact" href="#contacto">Contacto <span aria-hidden="true">↗</span></a>
+      <a href="#experiencia">Experiencia</a>
     </nav>
   </header>
 
-  <main>
-    <section class="shell hero" id="inicio">
-      <div>
-        <p class="eyebrow">Portfolio · Desarrollo y datos</p>
-        <h1>Hola, soy<br><span>Álvaro.</span></h1>
-        <p class="hero-copy">Creo herramientas útiles con Python: desde aplicaciones para gestionar información hasta pequeños proyectos de análisis de datos y automatización.</p>
-        <div class="hero-actions">
-          <a class="button" href="#proyectos">
-            Explorar proyectos
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="button button-secondary" href="https://github.com/alvaroglez372-lgtm" target="_blank" rel="noopener noreferrer">
-            Ver GitHub <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+  <div class="shell intro" id="inicio">
+    <p class="eyebrow">Currículum digital</p>
+    <h1>Álvaro González Blanco</h1>
+    <p class="headline">Ciencias Ambientales · Data Science · SIG</p>
+    <p class="summary">Graduado en Ciencias Ambientales y estudiante del Máster en Data Science, Big Data &amp; Business Analytics. Me interesa aplicar la tecnología, el análisis de datos y las herramientas geoespaciales a retos ambientales, y seguir creciendo profesionalmente en la intersección entre datos y medioambiente.</p>
+    <div class="contact-links" aria-label="Contacto y perfiles profesionales">
+      <a href="mailto:alvaroglez372@gmail.com">alvaroglez372@gmail.com</a>
+      <a href="https://www.linkedin.com/in/%C3%A1lvaro-gonz%C3%A1lez-blanco-89b6a43a0" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a href="https://github.com/alvaroglez372-lgtm" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <main class="shell">
+    <section class="section" id="formacion">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <h2>Formación académica</h2>
       </div>
-      <div class="hero-art" aria-label="Monograma AG">
-        <span class="art-label">Construyendo con curiosidad</span>
-        <span class="monogram" aria-hidden="true">AG</span>
-        <span class="art-note">Código con propósito.</span>
+
+      <article class="entry education-entry">
+        <div class="entry-date">Oct 2026 — Actualidad</div>
+        <div class="entry-content">
+          <h3>Máster en Data Science, Big Data &amp; Business Analytics <span class="current">En curso</span></h3>
+          <p class="entry-place">Universidad Complutense de Madrid · Modalidad online</p>
+          <div class="study-details">
+            <span>SQL y bases de datos</span><span>NoSQL</span><span>Python</span><span>Git / GitHub</span>
+            <span>Tableau</span><span>Spark</span><span>Machine Learning</span><span>Deep Learning</span>
+            <span>Agentes de IA</span><span>Text Mining</span><span>Open Data</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry education-entry">
+        <div class="entry-date">Sep 2020 — Jul 2026</div>
+        <div class="entry-content">
+          <h3>Grado Universitario en Ciencias Ambientales</h3>
+          <p class="entry-place">Universidad Rey Juan Carlos · Campus de Móstoles, Madrid</p>
+          <div class="study-details environmental">
+            <span>Sostenibilidad</span><span>GIS y ArcGIS Pro</span><span>Estadística</span>
+            <span>Análisis de contaminación</span><span>Toxicología ambiental</span><span>Biología y química</span>
+            <span>Hidrología y geología</span><span>Legislación ambiental</span><span>Análisis de Ciclo de Vida</span>
+            <span>Ecología</span><span>Restauración del medio natural</span><span>Energías renovables</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry education-entry">
+        <div class="entry-date">2017 — 2019</div>
+        <div class="entry-content">
+          <h3>Bachillerato de Ciencias y Tecnología</h3>
+          <p class="entry-place">Colegio Bilingüe Villalkor · Alcorcón, Madrid</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="idiomas">
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <h2>Idiomas</h2>
+      </div>
+      <div class="language-row">
+        <span>Inglés</span>
+        <span class="language-level">B2</span>
       </div>
     </section>
 
-    <section class="section" id="sobre-mi">
-      <div class="shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Un poco sobre mí</p>
-            <h2>Ideas claras.<br>Soluciones prácticas.</h2>
-          </div>
-          <p class="section-intro">Me interesa desarrollar proyectos que resuelvan tareas concretas, con código ordenado y una experiencia sencilla para quien los utiliza.</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-card">
-            <p>Mi trabajo personal combina programación en Python, gestión de datos y automatización de procesos. Disfruto convertir una necesidad cotidiana en una herramienta clara y funcional.</p>
-          </div>
-          <div class="focus-card">
-            <p class="focus-label">Áreas de interés</p>
-            <h3>Desarrollo de herramientas y análisis de datos.</h3>
-          </div>
-        </div>
-        <div class="skills" aria-label="Tecnologías y herramientas">
-          <span class="skill">Python</span>
-          <span class="skill">SQLite</span>
-          <span class="skill">Pandas</span>
-          <span class="skill">Tkinter</span>
-          <span class="skill">CSV / Parquet</span>
-          <span class="skill">GitHub</span>
-        </div>
+    <section class="section" id="cursos">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <h2>Cursos y especializaciones</h2>
+      </div>
+      <div class="courses-grid">
+        <article class="course">
+          <p class="course-date">Octubre 2026 · 80 h</p>
+          <h3>Curso PyQGIS (Python para QGIS)</h3>
+          <p>MappingGIS · Certificado oficial de QGIS.</p>
+        </article>
+        <article class="course">
+          <p class="course-date">Septiembre 2026 · 40 h</p>
+          <h3>Fundamentos Geoespaciales y Herramientas de Python</h3>
+          <p>Coursera · Programa Especializado certificado. Automatización SIG con PyQGIS y PostGIS; GDAL, GeoPandas y Rasterio.</p>
+        </article>
+        <article class="course">
+          <p class="course-date">Agosto 2026 · 36,5 h</p>
+          <h3>Maestro de Python: De Cero a Programador Todoterreno</h3>
+          <p>Udemy · POO, optimización, pruebas y tratamiento de datos con NumPy, Pandas y Matplotlib.</p>
+        </article>
       </div>
     </section>
 
     <section class="section" id="proyectos">
-      <div class="shell">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Trabajo seleccionado</p>
-            <h2>Proyectos</h2>
-          </div>
-          <p class="section-intro">Una selección de proyectos públicos en los que exploro la gestión de datos, la programación modular y distintas formas de hacer más simples las tareas del día a día.</p>
-        </div>
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-topline">
-              <span>Aplicación de escritorio</span>
-              <span class="project-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 9h16M8 13h3m-3 3h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              </span>
-            </div>
-            <h3>Gestor de clientes</h3>
-            <p>Aplicación con interfaz gráfica y modo terminal para crear, consultar, modificar y eliminar registros de clientes con persistencia en SQLite.</p>
-            <div class="project-bottom">
-              <div class="project-tags"><span>Python</span><span>SQLite</span><span>Tkinter</span></div>
-              <a class="text-link" href="https://github.com/alvaroglez372-lgtm/Gestor-de-clientes-SQL" target="_blank" rel="noopener noreferrer">
-                Ver proyecto
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <h2>Proyectos</h2>
+      </div>
+      <p class="section-note">Proyectos personales actuales; esta sección crecerá con nuevos trabajos de data science, análisis ambiental y el máster.</p>
+      <div class="projects-grid">
+        <article class="project">
+          <p class="project-type">Análisis de datos</p>
+          <h3>Análisis de ventas</h3>
+          <p>Lectura de datos CSV, cálculo de ventas por categoría y exportación de resultados a Parquet.</p>
+          <a class="project-link" href="https://github.com/alvaroglez372-lgtm/Analisis-de-ventas-con-Python" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub ↗</a>
+        </article>
+        <article class="project">
+          <p class="project-type">Aplicación de gestión</p>
+          <h3>Gestor de clientes</h3>
+          <p>Aplicación con interfaz gráfica y terminal para gestionar registros en una base de datos SQLite.</p>
+          <a class="project-link" href="https://github.com/alvaroglez372-lgtm/Gestor-de-clientes-SQL" target="_blank" rel="noopener noreferrer">Ver proyecto en GitHub ↗</a>
+        </article>
+      </div>
+      <div class="future-projects">
+        <span class="future-mark" aria-hidden="true">+</span>
+        <span><strong>Espacio para próximos proyectos.</strong> Data science, datos ambientales y trabajos desarrollados durante el máster.</span>
+      </div>
+    </section>
 
-          <article class="project-card">
-            <div class="project-topline">
-              <span>Análisis de datos</span>
-              <span class="project-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </div>
-            <h3>Análisis de ventas</h3>
-            <p>Herramienta modular que lee ventas desde archivos CSV, calcula importes y totales por categoría, y permite guardar los resultados en formato Parquet.</p>
-            <div class="project-bottom">
-              <div class="project-tags"><span>Python</span><span>Pandas</span><span>Parquet</span></div>
-              <a class="text-link" href="https://github.com/alvaroglez372-lgtm/Analisis-de-ventas-con-Python" target="_blank" rel="noopener noreferrer">
-                Ver proyecto
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </article>
+    <section class="section" id="habilidades">
+      <div class="section-heading">
+        <span class="section-number">05</span>
+        <h2>Habilidades y herramientas</h2>
+      </div>
+      <div class="skills-groups">
+        <div class="skill-group">
+          <h3>Datos y tecnología</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">NoSQL</span>
+            <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+            <span class="tag">Tableau</span><span class="tag">Spark</span><span class="tag">Git / GitHub</span>
+            <span class="tag">Microsoft Office · avanzado</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>SIG y medioambiente</h3>
+          <div class="tags">
+            <span class="tag">QGIS / PyQGIS</span><span class="tag">ArcGIS Pro</span><span class="tag">PostGIS</span>
+            <span class="tag">GDAL</span><span class="tag">GeoPandas</span><span class="tag">Rasterio</span>
+            <span class="tag">Sostenibilidad</span><span class="tag">Análisis ambiental</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Competencias</h3>
+          <div class="tags">
+            <span class="tag">Atención al cliente</span>
+            <span class="tag">Control de calidad</span>
+            <span class="tag">Apoyo a I+D+i</span>
+            <span class="tag">Trabajo de laboratorio</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="shell section" id="contacto">
-      <div class="contact">
-        <div>
-          <p class="eyebrow">¿Hablamos?</p>
-          <h2>Conectemos y construyamos algo útil.</h2>
+    <section class="section" id="experiencia">
+      <div class="section-heading">
+        <span class="section-number">06</span>
+        <h2>Experiencia laboral</h2>
+      </div>
+
+      <article class="entry experience-entry">
+        <div class="entry-date">Sep 2026 — Actualidad</div>
+        <div class="entry-content">
+          <h3>Operario de planta en E.D.A.R.</h3>
+          <p class="entry-place">AQUAMBIENTE Servicios para Sector del Agua S.A.U. · Barajas, Madrid</p>
+          <p class="entry-description">Mantenimiento, reparaciones, limpieza y apoyo a la explotación y al laboratorio.</p>
         </div>
-        <a class="button" href="https://github.com/alvaroglez372-lgtm" target="_blank" rel="noopener noreferrer">
-          Contactar por GitHub
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      </article>
+      <article class="entry experience-entry">
+        <div class="entry-date">Feb 2026 — Jun 2026</div>
+        <div class="entry-content">
+          <h3>Técnico de Laboratorio, Control de Calidad y Apoyo a I+D+i</h3>
+          <p class="entry-place">Electrofilm Española, S. A. · Arganda del Rey, Madrid</p>
+          <p class="entry-description">Prácticas universitarias en laboratorio químico: análisis de calidad de productos y apoyo a la experimentación y análisis de nuevos productos para I+D+i.</p>
+        </div>
+      </article>
+      <article class="entry experience-entry">
+        <div class="entry-date">Feb 2025 — Jun 2025</div>
+        <div class="entry-content">
+          <h3>Monitor Escolar y Tiempo Libre Educativo</h3>
+          <p class="entry-place">CUTASA, S. L. · Latina, Madrid</p>
+          <p class="entry-description">Cuidado y vigilancia de grupos infantiles; dinamización de actividades y juegos en grupo.</p>
+        </div>
+      </article>
+      <article class="entry experience-entry">
+        <div class="entry-date">Jul 2023 — Oct 2023</div>
+        <div class="entry-content">
+          <h3>Reponedor en Centro Comercial</h3>
+          <p class="entry-place">Hipercor · RPV (Recursos de Punto de Venta) · Fuenlabrada, Madrid</p>
+          <p class="entry-description">Atención al cliente, reposición de género y colocación de mercancía en el punto de venta.</p>
+        </div>
+      </article>
+      <article class="entry experience-entry">
+        <div class="entry-date">Jul 2022 — Feb 2023</div>
+        <div class="entry-content">
+          <h3>Ayudante de Frutería</h3>
+          <p class="entry-place">Hipercor - El Corte Inglés · Pozuelo de Alarcón, Madrid</p>
+          <p class="entry-description">Venta al público, atención y asesoramiento a clientes y reposición de productos frescos.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="otros">
+      <div class="section-heading">
+        <span class="section-number">07</span>
+        <h2>Otros datos de interés</h2>
+      </div>
+      <div class="other-data">
+        <span>Carné de conducir B</span>
+        <span>Vehículo propio</span>
       </div>
     </section>
   </main>
 
   <footer class="shell">
-    <span>© <span id="year">2026</span> Álvaro González</span>
-    <a href="https://github.com/alvaroglez372-lgtm" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    <span>Álvaro González Blanco · CV digital</span>
+    <a href="#inicio">Volver arriba ↑</a>
   </footer>
 </body>
 </html>
